@@ -1,44 +1,34 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema({
-    "user":{
-    type:String,
-    required:true
-},
-    title:{
-        type:String,
-        requires:true
+const postSchema = new mongoose.Schema({
+    user: {
+        type: String,
+        required: true
     },
-    type:{
-        type:String,
-        requires:true
+    title: {
+        type: String,
+        required: true
     },
-    
-    hashtag:String,
-    "user":{
-    type:String,
-    required:true
-},
-    title:{
-        type:String,
-        requires:true
+    text: {
+        type: String,
+        required: true
     },
-    hashtag:{
-        type:String,
-        requires:true
+    hashtag: {
+        type: String,
+        required: false // Set to true if you want this to be required
     },
-    location:{
-        type:String,
-        requires:true
+    location: {
+        type: String,
+        required: true
     },
-    url:{
-    type:String,
-    requires:true
-},
-    date:{
-        type:Date,
-        default:Date.now
+    url: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
-})
+});
 
-module.exports = mongoose.model('posts',postSchema)
+module.exports = mongoose.model('Post', postSchema);
